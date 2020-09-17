@@ -57,3 +57,17 @@ howManyLess valor day
     | day == -1 = 0
     | Vendas.vendas day < valor = 1 + howManyLess valor (day-1)
     | otherwise = howManyLess valor (day - 1)
+
+{-7-}
+sumTupla :: (Int, Int) -> (Int,Int)
+sumTupla (x, y) = (y, x + y)
+
+fibDupla :: Int -> (Int, Int)
+fibDupla n 
+    | n == 1 = (0,1)
+    | otherwise = sumTupla(fibDupla(n-1))
+
+fib :: Int -> Int
+fib n
+    | n == 0  = 0
+    | otherwise = snd (fibDupla(n))
