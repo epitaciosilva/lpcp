@@ -1,1 +1,3 @@
-# lpcp
+# LPCP
+
+## Exercícios de Haskell
