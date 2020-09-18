@@ -34,6 +34,8 @@ elimina :: [Int] -> Int -> [Int]
 elimina (a:x) n = removeEncontrados n (a:x)
 
 {-6-}
+-- Sublista
+{-
 inList :: Int -> [Int] -> (Bool, [Int])  -- retorna Bool se pertence ou a lista e então retorna o restante da lista
 inList n [] = (False,[])
 inList n (b:y)
@@ -49,3 +51,17 @@ sublista _ [] = False
 sublista (a:x) (b:y)
     | emptyList x && (fst (inList a (b:y))) = True
     | otherwise = sublista x (snd (inList a (b:y)))
+-}
+-- subsequencia
+sub :: [Int] -> [Int] -> Bool
+sub [] _ = True
+sub _ [] = False
+sub (a:x) (b:y)
+    | a == b = sub x y
+    | otherwise = False
+
+subsequencia :: [Int] -> [Int] -> Bool
+subsequencia _ [] = False
+subsequencia (a:x) (b:y)
+    | sub (a:x) (b:y) = True
+    | otherwise = subsequencia (a:x) y
